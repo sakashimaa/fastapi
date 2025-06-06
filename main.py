@@ -9,18 +9,19 @@ app = FastAPI()
 app.include_router(items_router)
 app.include_router(users_router)
 
+
 @app.get("/")
 def hello_index():
     return {
         "message": "Hello, Index!",
     }
 
+
 @app.get("/hello/")
 def hello(name: str = "world"):
     name = name.strip().title()
-    return {
-        "message": f"Hello, {name}"
-    }
+    return {"message": f"Hello, {name}"}
+
 
 @app.post("/calc/add/")
 def add(a: int, b: int):
